@@ -1,0 +1,873 @@
+/* Work Plan Manager Styles */
+.wpm-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 24px;
+}
+
+.wpm-container h1 {
+    color: #1e3a5f;
+    border-bottom: 2px solid #e1e8ed;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* Section Styling */
+.wpm-section {
+    margin-bottom: 32px;
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.wpm-section h2 {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2c5aa0 100%);
+    color: #fff;
+    margin: 0;
+    padding: 16px 24px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.wpm-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #1e3a5f 0%, #2c5aa0 100%);
+    padding: 16px 24px;
+}
+
+.wpm-section-header h2 {
+    background: none;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.wpm-workplan-section .wpm-workplan-selector {
+    padding: 24px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e1e8ed;
+}
+
+.wpm-workplan-form {
+    padding: 24px;
+}
+
+/* Form Styling */
+.wpm-workplan-selector {
+    padding:24px;
+}
+.wpm-form-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    align-items: flex-end;
+}
+
+.wpm-form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.wpm-form-group-full {
+    flex: 100%;
+}
+
+.wpm-form-group label {
+    font-weight: 500;
+    color: #1e3a5f;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.wpm-form-group input[type="text"],
+.wpm-form-group input[type="email"],
+.wpm-form-group input[type="date"],
+.wpm-form-group input[type="number"],
+.wpm-form-group select,
+.wpm-form-group textarea {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: #fff;
+}
+
+.wpm-form-group input:focus,
+.wpm-form-group select:focus,
+.wpm-form-group textarea:focus {
+    outline: none;
+    border-color: #2c5aa0;
+    box-shadow: 0 0 0 3px rgba(44, 90, 160, 0.1);
+}
+
+.wpm-form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.wpm-form-actions {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #e1e8ed;
+    display: flex;
+    gap: 12px;
+}
+
+/* Button Styling */
+.button-primary {
+    background: linear-gradient(135deg, #2c5aa0 0%, #1e3a5f 100%);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.button-primary:hover {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2c5aa0 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(44, 90, 160, 0.3);
+}
+
+.button-secondary {
+    background: #f8f9fa;
+    color: #1e3a5f;
+    border: 1px solid #e1e8ed;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.button-secondary:hover {
+    background: #e1e8ed;
+    border-color: #1e3a5f;
+    transform: translateY(-1px);
+}
+
+.button-small {
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+/* Goal and Objective Items */
+.wpm-goal-item,
+.wpm-objective-item {
+    background: #fff;
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.wpm-goal-header,
+.wpm-objective-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+}
+
+.wpm-header-title {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.wpm-header-title h3,
+.wpm-header-title h4 {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+}
+.wpm-goal-actions,
+.wpm-objective-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.wpm-goal-form,
+.wpm-objective-form {
+    padding: 20px;
+}
+
+/* Objectives Container */
+.wpm-objectives-container {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #e1e8ed;
+}
+
+/* Outputs Section */
+.wpm-outputs-section {
+    margin-top: 16px;
+    padding: 16px;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+.wpm-outputs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.wpm-outputs-header label {
+    font-weight: 500;
+    color: #1e3a5f;
+    margin: 0;
+}
+
+.wpm-output-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    align-items: flex-end;
+    background: #fff;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #e1e8ed;
+    flex-wrap: wrap;
+}
+
+.wpm-output-row .wpm-form-group:first-child {
+    flex: 0 0 60px;
+}
+
+.wpm-output-row .wpm-bimonthly-refs {
+    flex: 0 0 100%;
+    align-self: stretch;
+}
+
+/* Preview Section */
+.wpm-preview-section {
+    background: #f8f9fa;
+}
+
+.wpm-preview-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.wpm-preview-table {
+    padding: 24px;
+}
+
+.wpm-preview-table h3 {
+    color: #1e3a5f;
+    margin-bottom: 16px;
+    font-size: 22px;
+}
+
+.wpm-preview-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+    padding: 16px;
+    background: #fff;
+    border-radius: 6px;
+    border: 1px solid #e1e8ed;
+}
+
+.wpm-preview-info p {
+    margin: 0;
+    color: #1e3a5f;
+    font-weight: 500;
+}
+
+.wpm-preview-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.wpm-preview-data-table th {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2c5aa0 100%);
+    color: #fff;
+    padding: 12px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.wpm-preview-data-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e1e8ed;
+    vertical-align: top;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.wpm-preview-data-table tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.wpm-preview-data-table tr:hover {
+    background: #e3f2fd;
+}
+
+/* Loading Overlay */
+.wpm-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.wpm-loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255,255,255,0.3);
+    border-top: 4px solid #fff;
+    border-radius: 50%;
+    animation: wpm-spin 1s linear infinite;
+}
+
+.wpm-loading-text {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 12px;
+}
+
+@keyframes wpm-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Goals and Objectives Containers */
+#goals-container,
+#objectives-container {
+    padding: 24px;
+}
+
+#goals-container:empty::after {
+    content: "No goals created yet. Click 'Add New Goal' to get started.";
+    display: block;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 40px 20px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    border: 2px dashed #ddd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .wpm-container {
+        padding: 16px;
+        margin: 0 16px;
+    }
+    
+    .wpm-form-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .wpm-form-group {
+        flex: none;
+    }
+    
+    .wpm-section-header {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+    }
+    
+    .wpm-goal-header,
+    .wpm-objective-header {
+        flex-direction: column;
+        gap: 8px;
+        align-items: stretch;
+    }
+    
+    .wpm-goal-actions,
+    .wpm-objective-actions {
+        justify-content: center;
+    }
+    
+    .wpm-output-row {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .wpm-output-row .wpm-form-group:first-child {
+        flex: none;
+    }
+    
+    .wpm-preview-data-table {
+        font-size: 12px;
+    }
+    
+    .wpm-preview-data-table th,
+    .wpm-preview-data-table td {
+        padding: 8px 6px;
+    }
+    
+    .wpm-preview-info {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wpm-container h1 {
+        font-size: 24px;
+    }
+    
+    .wpm-section h2 {
+        font-size: 18px;
+        padding: 12px 16px;
+    }
+    
+    .wpm-workplan-form,
+    #goals-container,
+    #objectives-container {
+        padding: 16px;
+    }
+    
+    .wpm-form-actions {
+        flex-direction: column;
+    }
+    
+    .button-primary,
+    .button-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Animation Effects */
+.wpm-goal-item,
+.wpm-objective-item {
+    animation: fadeInUp 0.3s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Focus and Accessibility */
+.wpm-form-group input:focus,
+.wpm-form-group select:focus,
+.wpm-form-group textarea:focus,
+.button-primary:focus,
+.button-secondary:focus {
+    outline: 2px solid #2c5aa0;
+    outline-offset: 2px;
+}
+
+/* Success and Error States */
+.wpm-success {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+}
+
+.wpm-error {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+}
+
+/* Collapsible Sections */
+.wpm-collapsible {
+    transition: all 0.3s ease;
+}
+
+.wpm-collapsed .wpm-goal-form,
+.wpm-collapsed .wpm-objective-form {
+    display: none;
+}
+
+.wpm-collapse-toggle {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s ease;
+    margin-left: 8px;
+}
+
+.wpm-collapse-toggle:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.5);
+}
+
+.wpm-collapsed .wpm-collapse-toggle::before {
+    content: '▶ ';
+}
+
+.wpm-collapse-toggle::before {
+    content: '▼ ';
+}
+
+/* Header Title Extensions */
+.wpm-header-title {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.wpm-header-subtitle {
+    font-weight: normal;
+    font-size: 14px;
+    opacity: 0.9;
+    margin-left: 8px;
+}
+
+/* Sage Green Color Scheme for Goals */
+.wpm-goal-item {
+    border-color: #a4c2a5;
+}
+
+.wpm-goal-header {
+    background: linear-gradient(135deg, #87a96b 0%, #6b8e4e 100%);
+    border-bottom-color: #5a7c4a;
+}
+
+.wpm-goal-header h3 {
+    color: #fff;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.wpm-goal-actions .button {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.wpm-goal-actions .button:hover {
+    background: rgba(255,255,255,0.3);
+    border-color: rgba(255,255,255,0.5);
+}
+
+.wpm-goal-form {
+    background: #f5f9f5;
+}
+
+.wpm-goal-item .wpm-form-group label {
+    color: #4a6b3b;
+}
+
+.wpm-goal-item .button-primary {
+    background: linear-gradient(135deg, #6b8e4e 0%, #5a7c4a 100%);
+}
+
+.wpm-goal-item .button-primary:hover {
+    background: linear-gradient(135deg, #5a7c4a 0%, #4a6b3b 100%);
+}
+
+.wpm-goal-item .button-secondary {
+    border-color: #87a96b;
+    color: #4a6b3b;
+}
+
+.wpm-goal-item .button-secondary:hover {
+    background: #e8f2e8;
+    border-color: #6b8e4e;
+}
+
+/* Gold Color Scheme for Objectives */
+.wpm-objective-item {
+    border-color: #d4af37;
+    background: #fff;
+}
+
+.wpm-objective-header {
+    background: linear-gradient(135deg, #d4af37 0%, #b8960f 100%);
+    border-bottom-color: #a08510;
+}
+
+.wpm-objective-header h4 {
+    color: #fff;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+
+.wpm-objective-actions .button {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+    font-size: 11px;
+    padding: 4px 8px;
+}
+
+.wpm-objective-actions .button:hover {
+    background: rgba(255,255,255,0.3);
+    border-color: rgba(255,255,255,0.5);
+}
+
+.wpm-objective-form {
+    background: #fffdf5;
+}
+
+.wpm-objective-item .wpm-form-group label {
+    color: #8b6914;
+}
+
+.wpm-objective-item .button-primary {
+    background: linear-gradient(135deg, #b8960f 0%, #a08510 100%);
+}
+
+.wpm-objective-item .button-primary:hover {
+    background: linear-gradient(135deg, #a08510 0%, #8b6914 100%);
+}
+
+.wpm-objective-item .button-secondary {
+    border-color: #d4af37;
+    color: #8b6914;
+}
+
+.wpm-objective-item .button-secondary:hover {
+    background: #fff9e6;
+    border-color: #b8960f;
+}
+
+/* Outputs Section within Objectives */
+.wpm-outputs-section {
+    background: #fff;
+    border: 1px solid #e6d4a3;
+}
+
+.wpm-output-row {
+    background: #fff;
+    border-color: #e6d4a3;
+}
+
+.wpm-output-row:hover {
+    background: #fffef9;
+}
+
+/* Nested Objectives Container */
+.wpm-objectives-container {
+    margin-top: 20px;
+    padding: 0;
+    background: rgba(255,255,255,0.5);
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+/* Visual Hierarchy Improvements */
+.wpm-goal-item {
+    margin-bottom: 24px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.wpm-objective-item {
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* Collapsed State Indicators */
+.wpm-collapsed {
+    opacity: 0.95;
+}
+
+.wpm-collapsed .wpm-goal-header,
+.wpm-collapsed .wpm-objective-header {
+    border-bottom: none;
+    border-radius: 8px;
+}
+
+.wpm-goal-item.wpm-collapsed {
+    margin-bottom: 12px;
+}
+
+.wpm-objective-item.wpm-collapsed {
+    margin-bottom: 8px;
+}
+
+/* Responsive Collapse Buttons */
+@media (max-width: 768px) {
+    .wpm-header-subtitle {
+        display: none;
+    }
+    
+    .wpm-collapse-toggle {
+        padding: 2px 6px;
+        font-size: 10px;
+    }
+}
+
+/* Bimonthly Update References on Outputs */
+.wpm-bimonthly-refs {
+    width: 100%;
+    margin-top: 8px;
+    padding: 10px 14px;
+    background: #f0f6fc;
+    border: 1px solid #c3d9ed;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.wpm-bimonthly-refs > label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    color: #1a3a5c;
+    margin-bottom: 6px;
+}
+
+.wpm-ref-item {
+    padding: 6px 0;
+    border-bottom: 1px solid #dce8f0;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.wpm-ref-item:last-child {
+    border-bottom: none;
+}
+
+.wpm-ref-type {
+    display: inline-block;
+    background: #e8f0fe;
+    color: #1a56db;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 1px 6px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+.wpm-ref-meta {
+    font-size: 12px;
+    color: #666;
+}
+
+.wpm-ref-summary {
+    margin: 3px 0 0 0;
+    font-size: 12px;
+    color: #555;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+/* Preview references */
+.wpm-preview-refs {
+    margin-top: 4px;
+    padding: 4px 8px;
+    background: #f0f6fc;
+    border-left: 2px solid #72aee6;
+    font-size: 12px;
+}
+
+.wpm-preview-ref-item {
+    color: #333;
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 3px 0;
+    border-bottom: 1px solid #e8eef4;
+}
+
+.wpm-preview-ref-item:last-child {
+    border-bottom: none;
+}
+
+.wpm-preview-ref-type {
+    display: inline-block;
+    background: #e8f0fe;
+    color: #1a56db;
+    font-size: 9px;
+    font-weight: 600;
+    padding: 1px 4px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+.wpm-preview-ref-meta {
+    font-size: 11px;
+    color: #666;
+}
+
+.wpm-preview-ref-summary {
+    font-size: 11px;
+    color: #555;
+    font-style: italic;
+    margin: 2px 0 0 0;
+}
+
+.wpm-preview-output {
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+}
+
+/* Print Styles */
+@media print {
+    .wpm-container {
+        box-shadow: none;
+        border: none;
+    }
+    
+    .wpm-form-actions,
+    .wpm-goal-actions,
+    .wpm-objective-actions,
+    .wpm-preview-actions {
+        display: none;
+    }
+    
+    .wpm-preview-data-table {
+        box-shadow: none;
+    }
+    
+    .wpm-preview-data-table th {
+        background: #333 !important;
+        color: #fff !important;
+    }
+}
