@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Work Plan Manager
  * Description: A plugin to manage Work Plans, Goals, and Objectives with a streamlined interface
- * Version: 1.4.3
+ * Version: 1.5.2
  * Author: KC Web Programmers
  * Text Domain: work-plan-manager
  */
@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
 // Define plugin constants
 define('WPM_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('WPM_PLUGIN_PATH', plugin_dir_path(__FILE__));
-define('WPM_VERSION', '1.4.3');
+define('WPM_VERSION', '1.5.2');
 
 class WorkPlanManager {
     
@@ -251,6 +251,7 @@ class WorkPlanManager {
         $grant_year = sanitize_text_field($_POST['grant_year']);
         $group = sanitize_text_field($_POST['group']);
         $internal_status = sanitize_text_field($_POST['internal_status']);
+        $fiscal_year = sanitize_text_field($_POST['fiscal_year']);
         
         // Additional permission check for existing workplans
         if ($workplan_id > 0 && !wpm_user_can_edit_workplan($workplan_id)) {
@@ -296,6 +297,7 @@ class WorkPlanManager {
             // Set ACF fields
             if (function_exists('update_field')) {
                 update_field('internal_status', $internal_status, $result);
+                update_field('work_plan_calendar_year', $fiscal_year, $result);
             }
             
             wp_send_json_success(array('workplan_id' => $result));
@@ -558,6 +560,7 @@ class WorkPlanManager {
             'author' => get_the_author_meta('display_name', $workplan->post_author),
             'date' => $workplan->post_date,
             'internal_status' => $this->get_field_value('internal_status', $workplan->ID),
+            'fiscal_year' => $this->get_field_value('work_plan_calendar_year', $workplan->ID),
             'group' => wp_get_post_terms($workplan->ID, 'group', array('fields' => 'names')),
             'grant_year' => wp_get_post_terms($workplan->ID, 'grant-year', array('fields' => 'names')),
         );

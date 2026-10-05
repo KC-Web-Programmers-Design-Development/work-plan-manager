@@ -57,6 +57,16 @@ $group_terms = get_terms(array(
     'taxonomy' => 'group',
     'hide_empty' => false,
 ));
+
+// Fiscal Year choices come from the ACF field itself so this dropdown stays
+// in sync if the field's choices are ever edited in ACF.
+$fiscal_year_choices = array();
+if (function_exists('acf_get_field')) {
+    $fiscal_year_field = acf_get_field('work_plan_calendar_year');
+    if ($fiscal_year_field && !empty($fiscal_year_field['choices'])) {
+        $fiscal_year_choices = $fiscal_year_field['choices'];
+    }
+}
 ?>
 
 <div class="wrap wpm-container">
@@ -138,7 +148,22 @@ $group_terms = get_terms(array(
                         </select>
                     </div>
                 </div>
-                
+
+                <div class="wpm-form-row">
+                    <div class="wpm-form-group">
+                        <label for="fiscal-year"><?php _e('Fiscal Year:', 'work-plan-manager'); ?></label>
+                        <select id="fiscal-year" name="fiscal_year">
+                            <option value=""><?php _e('-- Select Year --', 'work-plan-manager'); ?></option>
+                            <?php foreach ($fiscal_year_choices as $value => $label): ?>
+                                <option value="<?php echo esc_attr($value); ?>">
+                                    <?php echo esc_html($label); ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                        <p class="description"><?php _e('Select the last year of the fiscal year.', 'work-plan-manager'); ?></p>
+                    </div>
+                </div>
+
                 <div class="wpm-form-row">
                     <div class="wpm-form-group wpm-form-group-full">
                         <label for="workplan-group"><?php _e('Group:', 'work-plan-manager'); ?></label>

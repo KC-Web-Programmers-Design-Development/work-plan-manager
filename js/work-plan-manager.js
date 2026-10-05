@@ -172,6 +172,7 @@ jQuery(document).ready(function($) {
             $('#grant-year').val('');
             $('#workplan-group').val('');
             $('#internal-status').val('Draft');
+            $('#fiscal-year').val('');
             
             // Set current date
             const today = new Date();
@@ -216,14 +217,18 @@ jQuery(document).ready(function($) {
         populateWorkplanForm: function(data) {
             $('#workplan-form').show();
             $('#workplan-id').val(data.id);
-            
-            // Remove year suffix if present to avoid duplicate years
-            let title = data.title;
-            title = title.replace(/\s*-\s*\d{4}$/, '');
-            $('#workplan-title').val(title);
-            
+
+            $('#workplan-title').val(data.title);
+
+            // Show the work plan's original author (post_author), not whoever
+            // is currently logged in loading/editing it.
+            $('#workplan-author').val(data.author);
+
             // Set Internal Status
             $('#internal-status').val(data.internal_status || 'Draft');
+
+            // Set Fiscal Year
+            $('#fiscal-year').val(data.fiscal_year || '');
             
             // Set Group taxonomy
             if (data.group && data.group.length > 0) {
@@ -257,41 +262,31 @@ jQuery(document).ready(function($) {
         },
         
         saveWorkplan: function() {
-            let title = $('#workplan-title').val().trim();
+            const title = $('#workplan-title').val().trim();
             if (!title) {
                 alert('Please enter a work plan title.');
                 return;
             }
-            
-            // Remove any existing year suffix to avoid duplicates
-            title = title.replace(/\s*-\s*\d{4}$/, '');
-            
-            // Get the year from the publish date
-            const publishDate = $('#workplan-date').val();
-            const year = publishDate ? new Date(publishDate).getFullYear() : new Date().getFullYear();
-            
-            // Append the year
-            const titleWithYear = title + ' - ' + year;
-            
+
             WorkPlanManager.showLoading();
-            
+
             $.ajax({
                 url: wpm_ajax.ajax_url,
                 type: 'POST',
                 data: {
                     action: 'save_workplan',
                     workplan_id: $('#workplan-id').val(),
-                    title: titleWithYear,
+                    title: title,
                     grant_year: $('#grant-year').val(),
                     group: $('#workplan-group').val(),
                     internal_status: $('#internal-status').val(),
+                    fiscal_year: $('#fiscal-year').val(),
                     nonce: wpm_ajax.nonce
                 },
                 success: function(response) {
                     if (response.success) {
                         WorkPlanManager.currentWorkplanId = response.data.workplan_id;
                         $('#workplan-id').val(response.data.workplan_id);
-                        $('#workplan-title').val(title); // Keep clean title in form
                         $('#goals-section').show();
                         $('#preview-section').show();
                         WorkPlanManager.updatePreview();
@@ -938,15 +933,8 @@ jQuery(document).ready(function($) {
         },
         
         collectWorkplanData: function() {
-            // Get title with year appended
-            let title = $('#workplan-title').val();
-            const publishDate = $('#workplan-date').val();
-            const year = publishDate ? new Date(publishDate).getFullYear() : new Date().getFullYear();
-            
-            // Remove any existing year and add current year
-            title = title.replace(/\s*-\s*\d{4}$/, '');
-            title = title + ' - ' + year;
-            
+            const title = $('#workplan-title').val();
+
             const workplanData = {
                 id: WorkPlanManager.currentWorkplanId,
                 title: title,
@@ -954,6 +942,7 @@ jQuery(document).ready(function($) {
                 grant_year: $('#grant-year option:selected').text() || '',
                 group: $('#workplan-group option:selected').text() || '',
                 internal_status: $('#internal-status').val() || '',
+                fiscal_year: $('#fiscal-year option:selected').text() || '',
                 goals: []
             };
             
@@ -1149,6 +1138,7 @@ jQuery(document).ready(function($) {
                             e('p', null, e('strong', null, 'Author: '), workplanData.author),
                             e('p', null, e('strong', null, 'Group: '), workplanData.group || 'Not set'),
                             e('p', null, e('strong', null, 'Grant Year: '), workplanData.grant_year || 'Not set'),
+                            e('p', null, e('strong', null, 'Fiscal Year: '), workplanData.fiscal_year || 'Not set'),
                             e('p', null, e('strong', null, 'Status: '), workplanData.internal_status || 'Draft')
                         ),
                         e('table', { className: 'wpm-preview-data-table' },
